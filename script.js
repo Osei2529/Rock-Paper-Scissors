@@ -2,7 +2,6 @@ console.log("hello world!")
 
 function getComputerChoice() {
     let number = Math.random();
-    console.log (number);
 
     if (number < 1/3 ) {
         return "rock";
@@ -15,4 +14,9 @@ function getComputerChoice() {
     else {
         return "scissors";
     }
+}
+
+function getHumanChoice() {
+    let choice = prompt("what's your move buddy? Rock, Paper, or Scissors?");
+    return choice;
 }
