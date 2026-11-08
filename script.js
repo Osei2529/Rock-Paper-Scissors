@@ -1,3 +1,10 @@
+let humanScore = 0;
+let computerScore = 0;
+
+const results = document.querySelector("#results");
+const score = document.querySelector("#score");
+const winner = document.querySelector("#winner");
+
 function getComputerChoice() {
     let number = Math.random();
 
@@ -14,11 +21,8 @@ function getComputerChoice() {
     }
 }
 
-let humanScore = 0;
-let computerScore = 0;
 function playRound(playerSelection) {
      if (humanScore === 5 || computerScore === 5) return;
-    playerSelection = playerSelection.toLowerCase();
 
     const computerSelection = getComputerChoice();
     let message;
@@ -30,7 +34,7 @@ function playRound(playerSelection) {
         (playerSelection === "rock" &&  computerSelection === "paper") ||
         (playerSelection === "scissors" &&  computerSelection === "rock") ||
         (playerSelection === "paper" &&  computerSelection === "scissors")) {
-        message = `You lose! ${computerSelection} beats ${playerSelection}`;
+            message = `You lose! ${computerSelection} beats ${playerSelection}`;
         computerScore++;
     }
     else {
@@ -52,11 +56,7 @@ function playRound(playerSelection) {
     }
 }
 
-const div = document.querySelector("#buttons");
-const results = document.querySelector("#results");
-const score = document.querySelector("#score");
-const winner = document.querySelector("#winner");
-
+const buttonsDiv = document.querySelector("#buttons");
 
 const rockbtn = document.createElement("button");
 const paperbtn = document.createElement("button");
@@ -66,9 +66,9 @@ rockbtn.textContent = "rock";
 paperbtn.textContent = "paper";
 scissorsbtn.textContent = "scissors";
 
-div.appendChild(rockbtn);
-div.appendChild(paperbtn);
-div.appendChild(scissorsbtn);
+buttonsDiv.appendChild(rockbtn);
+buttonsDiv.appendChild(paperbtn);
+buttonsDiv.appendChild(scissorsbtn);
 
 rockbtn.addEventListener("click", () => playRound("rock"));
 paperbtn.addEventListener("click", () => playRound("paper"));
